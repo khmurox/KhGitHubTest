@@ -1,4 +1,4 @@
-MuroxGitHubTest
+KhGitHubTest
 ===============
 
-Project for testing GitHub for Murox
+Project for testing GitHub for Kh
