@@ -29,7 +29,7 @@ namespace Ribbon
             // setup trackball for moving the model around
             _trackball = new Trackball();
             _trackball.Attach(this);
-            _trackball.Slaves.Add(myViewport3D);
+            _trackball.Slaves.Add(MyViewport3D);
             _trackball.Enabled = true;
 
         }

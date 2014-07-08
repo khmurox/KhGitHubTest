@@ -102,6 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cubeanimation_xbap.csproj" />
+    <Resource Include="image\roundcornersheet.png" />
+    <Resource Include="image\star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

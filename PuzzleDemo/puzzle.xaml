@@ -14,12 +14,6 @@
     </LinearGradientBrush>
   </Window.Background>
 
-  <Window.Resources>
-    <Image x:Key="MasterImage" Source="flower.jpg" />
-    <Image x:Key="TableImage" Source="table-bowl.jpg" />
-    <MediaElement Height="480" Width="640" x:Key="MasterVideo" Source="Intro.wmv" />
-  </Window.Resources>
-
   <DockPanel x:Name="PuzzleHostingPanel">
 
     <StackPanel Orientation="Horizontal" x:Name="ControlPanel" DockPanel.Dock="Bottom">
