@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleDemo", "..\PuzzleDemo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeDemo", "..\CubeDemo\CubeDemo.csproj", "{77469CEF-DB02-4DE5-A79C-358B57E4016A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caffeine", "..\Caffeine\Caffeine.csproj", "{AB9ABFFE-9F2D-48BE-896D-7A3E965BD1D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{77469CEF-DB02-4DE5-A79C-358B57E4016A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77469CEF-DB02-4DE5-A79C-358B57E4016A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77469CEF-DB02-4DE5-A79C-358B57E4016A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB9ABFFE-9F2D-48BE-896D-7A3E965BD1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB9ABFFE-9F2D-48BE-896D-7A3E965BD1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB9ABFFE-9F2D-48BE-896D-7A3E965BD1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB9ABFFE-9F2D-48BE-896D-7A3E965BD1D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

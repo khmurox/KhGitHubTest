@@ -2,43 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModels="clr-namespace:MuroxGitHubTest.ViewModels"
         mc:Ignorable="d" x:Class="MuroxGitHubTest.MainWindow"
-        Title="Caffeine" ResizeMode="NoResize" Icon="Content/Caffeine.ico" Height="{Binding Height, FallbackValue=188, Mode=OneWayToSource}" Width="{Binding Width, FallbackValue=320, Mode=OneWayToSource}" Top="{Binding Path=Top, Mode=TwoWay}" Left="{Binding Path=Left, Mode=TwoWay}" WindowStyle="ToolWindow" Topmost="{Binding Topmost, Mode=OneWay}">
-	<Window.DataContext>
-		<viewModels:MainViewModel/>
-	</Window.DataContext>
-	<Window.Resources>
-		<Style x:Key="WakeCheckBox" TargetType="{x:Type CheckBox}">
-			<Setter Property="SnapsToDevicePixels" Value="true"/>
-			<Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}"/>
-			<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
-			<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type CheckBox}">
-						<BulletDecorator Background="Transparent">
-							<BulletDecorator.Bullet>
-								<Image x:Name="CheckImage" Width="32" Height="32" Source="Content/Sleep.png"/>
-							</BulletDecorator.Bullet>
-							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-						</BulletDecorator>
-						<ControlTemplate.Triggers>
-							<Trigger Property="IsChecked" Value="true">
-								<Setter Property="Source" Value="Content/Awake.png" TargetName="CheckImage"/>
-							</Trigger>
-						</ControlTemplate.Triggers>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</Window.Resources>
-	<Grid Background="White">
-		<Border Margin="8,8,8,0" VerticalAlignment="Top" Height="36.83" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.InfoTextBrushKey}}" BorderThickness="1" Padding="4">
-			<TextBlock x:Name="Description" TextWrapping="Wrap" Text="Select the devices to keep awake" FontSize="18.667" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.InfoTextBrushKey}}"/>
-		</Border>
-		<CheckBox x:Name="DisplayCheck" Content="Display" Margin="8,51,0,0" Style="{DynamicResource WakeCheckBox}" IsChecked="{Binding DisplayRequired}" IsEnabled="{Binding IsEnabled, Mode=OneWay}" FontSize="26.667" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-		<CheckBox x:Name="SystemCheck" Content="System" Margin="8,92,0,0" Style="{DynamicResource WakeCheckBox}" IsChecked="{Binding SystemRequired}" IsEnabled="{Binding IsEnabled, Mode=OneWay}" FontSize="26.667" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-		<CheckBox x:Name="TopmostCheck" Content="Keep this window on top of others" HorizontalAlignment="Left" Margin="8,0,0,8" Height="16" VerticalAlignment="Bottom" IsChecked="{Binding Topmost}" />
-	</Grid>
+        Title="Tester" >
 </Window>
