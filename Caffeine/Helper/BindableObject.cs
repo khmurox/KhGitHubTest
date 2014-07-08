@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MuroxGitHubTest.Helper
+namespace Caffeine.Helper
 {
     public abstract class BindableObject : INotifyPropertyChanged
     {

@@ -4,7 +4,7 @@ using System.Security;
 
 //[assembly: SecurityCritical]
 
-namespace MuroxGitHubTest.Helper
+namespace Caffeine.Helper
 {
     internal static class NativeMethods
     {

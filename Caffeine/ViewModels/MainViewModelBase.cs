@@ -1,7 +1,6 @@
-﻿using MuroxGitHubTest.Helper;
-using MuroxGitHubTest.Properties;
+﻿using Caffeine.Helper;
 
-namespace MuroxGitHubTest.ViewModels
+namespace Caffeine.ViewModels
 {
     public abstract class MainViewModelBase : BindableObject
     {

@@ -1,8 +1,8 @@
 ﻿using System.Windows;
+using Caffeine.Properties;
 using Microsoft.Win32;
-using MuroxGitHubTest.Properties;
 
-namespace MuroxGitHubTest.ViewModels
+namespace Caffeine.ViewModels
 {
     public sealed class MainViewModel : MainViewModelBase
     {
