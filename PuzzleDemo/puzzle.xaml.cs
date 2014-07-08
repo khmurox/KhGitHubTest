@@ -1,28 +1,24 @@
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Media;
-using System.Windows.Shapes;
-using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
-using System.Diagnostics;
-using System.ComponentModel;
+using System.Windows.Media.Imaging;
 
-
-namespace PuzzleProject
+namespace PuzzleDemo
 {
-	public partial class Puzzle : Window
-	{
+    public partial class Puzzle
+    {
         private void PuzzleSourceChanged(object sender, SelectionChangedEventArgs e)
-		{
-			ComboBox cb = (ComboBox) sender;
-			ComboBoxItem item = (ComboBoxItem) cb.SelectedValue;
-			string tag = (string) item.Tag;
+        {
+            var cb = (ComboBox)sender;
+            var item = (ComboBoxItem)cb.SelectedValue;
+            var tag = (string)item.Tag;
 
-			_stylingPuzzle = true;
+            _stylingPuzzle = true;
 
             if (_masterVideoElement != null)
             {
@@ -30,27 +26,27 @@ namespace PuzzleProject
                 _masterVideoElement = null;
             }
 
-			switch (tag)
-			{
-				case "Untemplated":
-					_stylingPuzzle = false;
-					break;
+            switch (tag)
+            {
+                case "Untemplated":
+                    _stylingPuzzle = false;
+                    break;
 
-				case "StaticBitmap":
-					{
-                        Image masterImage = (Image)this.Resources["MasterImage"];
+                case "StaticBitmap":
+                    {
+                        var masterImage = (Image)Resources["MasterImage"];
                         _elementToChopUp = masterImage;
-                        BitmapSource bitmap = (BitmapSource)masterImage.Source;
+                        var bitmap = (BitmapSource)masterImage.Source;
                         _puzzleSize = new Size(bitmap.PixelWidth / 1.5, bitmap.PixelHeight / 1.5);
                     }
-					break;
+                    break;
 
-				case "StaticVectorContent":
-					{
-						_elementToChopUp = new PuzzleProject.VectorContent();
-						_puzzleSize = new Size(500, 500);
-					}
-					break;
+                case "StaticVectorContent":
+                    {
+                        _elementToChopUp = new VectorContent();
+                        _puzzleSize = new Size(500, 500);
+                    }
+                    break;
 
                 case "VideoContent":
                     {
@@ -58,22 +54,22 @@ namespace PuzzleProject
                     }
                     break;
 
-				case "AnimateVectorContent":
-					{
-						VectorContent vc = new VectorContent();
-                        
-                        // Must explicitly start storyboards that only appear in VisualBrushes
-                        vc.BeginStoryboard(vc.myStoryboard);  
-                        
-						_elementToChopUp = vc;
-						_puzzleSize = new Size(500, 500);
-					}
+                case "AnimateVectorContent":
+                    {
+                        var vc = new VectorContent();
 
-					break;
+                        // Must explicitly start storyboards that only appear in VisualBrushes
+                        vc.BeginStoryboard(vc.myStoryboard);
+
+                        _elementToChopUp = vc;
+                        _puzzleSize = new Size(500, 500);
+                    }
+
+                    break;
 
                 case "Document":
                     {
-                        FrameworkElement elt = new PuzzleProject.MyDocument();
+                        FrameworkElement elt = new MyDocument();
                         _elementToChopUp = elt;
                         _puzzleSize = new Size(elt.Width, elt.Height);
                     }
@@ -81,58 +77,54 @@ namespace PuzzleProject
 
                 case "FormsContent":
                     {
-                        FrameworkElement elt = new PuzzleProject.FormContent();
+                        FrameworkElement elt = new FormContent();
                         _elementToChopUp = elt;
                         _puzzleSize = new Size(700, 500);
                     }
                     break;
 
-				case "SpinningCube":
-					{
-                        VectorContent vc = new PuzzleProject.VectorContent();
+                case "SpinningCube":
+                    {
+                        var vc = new VectorContent();
                         vc.BeginStoryboard(vc.myStoryboard);  // Must explicitly start storyboards that only appear in VisualBrushes
-                        Image masterImage = (Image)this.Resources["TableImage"];
+                        var masterImage = (Image)this.Resources["TableImage"];
 
-                        SpinningCube sc = new SpinningCube();
+                        var sc = new SpinningCube
+                        {
+                            CubeMaterial = {Brush = new ImageBrush(masterImage.Source)},
+                            CubeMaterial2 = {Brush = new VisualBrush(vc)}
+                        };
 
-                        sc.CubeMaterial.Brush = new ImageBrush(masterImage.Source); 
-                        sc.CubeMaterial2.Brush = new VisualBrush(vc);
-
-                        Storyboard myStoryboard = (Storyboard)sc.Resources["myStoryboard"];
+                        var myStoryboard = (Storyboard)sc.Resources["myStoryboard"];
                         sc.BeginStoryboard(myStoryboard);  // Must explicitly start storyboards that only appear in VisualBrushes
                         _elementToChopUp = sc;
-						_puzzleSize = new Size(500, 500);
-					}
+                        _puzzleSize = new Size(500, 500);
+                    }
 
-					break;
+                    break;
 
-				default:
+                default:
                     Debug.Assert(false, "Unexpected Puzzle Source");
-					break;
-			}
+                    break;
+            }
 
-			NewPuzzleGrid();
+            NewPuzzleGrid();
+        }
 
-		}
 
-        
         private UIElement PrepareVideoElement(out Size resultingSize)
         {
             _masterVideoElement = (MediaElement)this.Resources["MasterVideo"];
             _masterVideoElement.UnloadedBehavior = MediaState.Manual;
-
-
             resultingSize = new Size(_masterVideoElement.Width, _masterVideoElement.Height);
-
             _masterVideoElement.Play();
-
             return _masterVideoElement;
         }
 
         private void OnMoveMade(object sender, HandledEventArgs e)
         {
             // Blur or unblur based on whether the move was a valid one.
-            BlurBitmapEffect blur = (BlurBitmapEffect)ControlPanel.BitmapEffect;
+            var blur = (BlurBitmapEffect)ControlPanel.BitmapEffect;
             if (blur != null)
             {
                 if (e.Handled)
@@ -150,7 +142,6 @@ namespace PuzzleProject
                 }
             }
         }
-
 
         private void NewPuzzleGrid()
         {
@@ -179,35 +170,35 @@ namespace PuzzleProject
             PuzzleHostingPanel.Children.Add(_puzzleGrid);
             StatusLabel.Content = "New " + _numRows + "x" + _numRows + " game";
         }
-        
+
         #region Less Consequential Event Handlers
 
         private void OnMixUp(object sender, RoutedEventArgs e)
-		{
-			_puzzleGrid.MixUpPuzzle();
-		}
+        {
+            _puzzleGrid.MixUpPuzzle();
+        }
 
-		private void OnResetPuzzle(object sender, RoutedEventArgs e)
-		{
+        private void OnResetPuzzle(object sender, RoutedEventArgs e)
+        {
             NewPuzzleGrid();
-		}
+        }
 
-		private void OnShowHideNumbers(object sender, RoutedEventArgs e)
-		{
-			CheckBox cb = (CheckBox)sender;
-			_puzzleGrid.ShowNumbers(cb.IsChecked.Value);
-		}
+        private void OnShowHideNumbers(object sender, RoutedEventArgs e)
+        {
+            var cb = (CheckBox)sender;
+            _puzzleGrid.ShowNumbers(cb.IsChecked.Value);
+        }
 
         private void OnChkAnimation(object sender, RoutedEventArgs e)
         {
-            CheckBox cb = (CheckBox)sender;
+            var cb = (CheckBox)sender;
             _puzzleGrid.ShouldAnimateInteractions = cb.IsChecked.Value;
         }
         private void PuzzleDimensionsChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox cb = (ComboBox)sender;
-            ComboBoxItem item = (ComboBoxItem)cb.SelectedValue;
-            string tag = (string)item.Tag;
+            var cb = (ComboBox)sender;
+            var item = (ComboBoxItem)cb.SelectedValue;
+            var tag = (string)item.Tag;
             _numRows = Int32.Parse(tag);
             NewPuzzleGrid();
         }
@@ -220,14 +211,14 @@ namespace PuzzleProject
         {
             InitializeComponent();
         }
-        
+
         private PuzzleGrid _puzzleGrid;
         private UIElement _elementToChopUp;
         private Size _puzzleSize;
         private bool _stylingPuzzle;
         private int _numRows;
 
-        private MediaElement _masterVideoElement = null;
+        private MediaElement _masterVideoElement;
 
         #endregion
     }

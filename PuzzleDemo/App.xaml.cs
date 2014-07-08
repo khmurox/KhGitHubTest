@@ -1,10 +1,6 @@
-using System;
 using System.Windows;
-using System.Data;
-using System.Xml;
-using System.Configuration;
 
-namespace PuzzleProject
+namespace PuzzleDemo
 {
 
 	public partial class app : Application
@@ -14,6 +10,5 @@ namespace PuzzleProject
 			Window mainWindow = new Puzzle();
 			mainWindow.Show();
 		}
-
 	}
 }

@@ -1,4 +1,4 @@
-﻿<FlowDocumentPageViewer Background="White" Zoom="80" Width="500" Height="500" x:Class="PuzzleProject.MyDocument" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<FlowDocumentPageViewer Background="White" Zoom="80" Width="500" Height="500" x:Class="PuzzleDemo.MyDocument" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <FlowDocumentPageViewer.Template>
     <ControlTemplate TargetType="{x:Type FlowDocumentPageViewer}">
 			<Grid>

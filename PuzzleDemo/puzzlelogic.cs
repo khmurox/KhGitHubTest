@@ -1,9 +1,7 @@
 using System;
-using System.Windows;
-using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace PuzzleProject
+namespace PuzzleDemo
 {
 	struct PuzzleCell
 	{
