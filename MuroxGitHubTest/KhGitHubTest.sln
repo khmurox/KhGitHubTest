@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuroxGitHubTest", "MuroxGitHubTest.csproj", "{B77FCB8E-A668-4ACA-BE7B-E3837DE2B745}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhGitHubTest", "KhGitHubTest.csproj", "{B77FCB8E-A668-4ACA-BE7B-E3837DE2B745}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleDemo", "..\PuzzleDemo\PuzzleDemo.csproj", "{4561B0CD-3533-4187-9228-C0121FE7BE21}"
 EndProject
